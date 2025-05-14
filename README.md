@@ -215,7 +215,7 @@ The [CHARM](https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/nonhuman/macaque_temp
 
 In an update we have added the ROI extraction for the D99v2 atlas as well. Users can toggle which atlases to extract ROIs from by setting `doCHARM=1`, `doSARM=1`, and `doD99=1` at the top of the `ssreg_aff_ROIs.sh` and `ssreg_nlin_ROIs.sh` scripts to include atlases. Set them to `0` to exclude.
 
-The generation of mesh files requires Python and the modules `nibabel`, `numpy`, `igl`, `skimage`, & `scipy`. 
+The generation of mesh files requires Python and the modules `nibabel`, `numpy`, `igl`, `skimage`(scikit-image), & `scipy`. 
 The script will check whether these are present and quit without making meshes when this is not the case.
 
 `ssreg_aff_ROIs.sh subject [template folder path] [NMT version] [NMT type] [NMT subtype]`       

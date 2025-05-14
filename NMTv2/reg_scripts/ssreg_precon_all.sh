@@ -16,6 +16,7 @@ REGTYPE=$2
 TEMPLATEFLD=${3:-'/NHP_MRI/TEMPLATES/Templates'}
 NMTVERSION=${4:-'NMT_v2.0'}
 NMTTYPE1=${5:-'NMT_v2.0_asym'}
+ATLAS_NAME=${6:-'NIMH_mac'}
 
 SCRIPTFLD="$(dirname "$(realpath "$0")")"
 
@@ -65,12 +66,12 @@ cd ${SCRIPTFLD}/precon_all
 if [ "$do_nlin" = true ]; then
     ./bin/surfing_safari.sh \
         -i ${SSFLD}/aligned_${SUB}/freesurfer/NMT2_in_${SUB}.nii.gz \
-        -r precon_all -a NIMH_mac
+        -r precon_all -a "${ATLAS_NAME}"
 fi
 if [ "$do_aff" = true ]; then
     ./bin/surfing_safari.sh \
         -i ${SSFLD}/aligned_${SUB}/freesurfer/NMT2_in_${SUB}_aff.nii.gz \
-        -r precon_all -a NIMH_mac
+        -r precon_all -a "${ATLAS_NAME}"
 fi
 
 # back to starting folder
