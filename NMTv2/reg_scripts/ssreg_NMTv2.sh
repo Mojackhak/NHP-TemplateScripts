@@ -44,20 +44,21 @@ VENTRICLES=${BASENMT}/${NMTTYPE2}/supplemental_masks/${NMTTYPE2}_ventricles.nii.
 OUTBASE=${BASENMT}/SingleSubjects
 mkdir -p ${OUTBASE}/aw_log
 
-@animal_warper \
-      -input  ${SUBT1} \
-      -base   ${TEMPLATE} \
-      -skullstrip ${BMASK} \
-      -atlas ${D99} ${D99v2} ${CHARM} ${SARM} \
-      -seg_followers ${SEG} ${GM} ${CEREBELLUM} ${LR} ${VENTRICLES} \
-      -align_type ${ALIGN} \
-      -ok_to_exist \
-      -outdir ${OUTBASE}/aligned_${SUB} \
-      -cost ${COST} \
-      -aff_move_opt big_move
-      #-align_centers_meth cm \
-      #-supersize \
-      |& tee ${OUTBASE}/aw_log/o.aw_${SUB}.txt
+{
+  @animal_warper \
+    -input          "${SUBT1}" \
+    -base           "${TEMPLATE}" \
+    -skullstrip     "${BMASK}" \
+    -atlas          "${D99}" "${D99v2}" "${CHARM}" "${SARM}" \
+    -seg_followers  "${SEG}" "${GM}" "${CEREBELLUM}" "${LR}" "${VENTRICLES}" \
+    -align_type     "${ALIGN}" \
+    -ok_to_exist \
+    -outdir         "${OUTBASE}/aligned_${SUB}" \
+    -cost           "${COST}" \
+    -aff_move_opt   big_move
+    # -align_centers_meth cm   # optional center-alignment tweak
+    # -supersize               # optional size-mismatch allowance
+} 2>&1 | tee "${OUTBASE}/aw_log/o.aw_${SUB}.txt"
 
 # copy the SARM/CHARM tables
 cp -R ${BASENMT}/tables_* ${OUTBASE}/aligned_${SUB}/
