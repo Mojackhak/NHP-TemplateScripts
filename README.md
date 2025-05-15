@@ -310,7 +310,7 @@ bash ssreg_nlin_ONPRC18.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2
 <br>
 
 ## Step 8: Create Freesurfer compatible surfaces
-For later processing and/or visualisation, for instance with packages like [NHP-Pycortex](https://github.com/VisionandCognition/NHP-pycortex) it can be useful to generate [Freesurfer](https://surfer.nmr.mgh.harvard.edu/) compatible surfaces and segmentations. This is not trivial for non-human brains. With a package like [NHP-Freesurfer](https://github.com/VisionandCognition/NHP-Freesurfer) you can do this but it requires a fair bit of manual editing. A fast alternative we have implemented here is to use the [precon_all](https://github.com/neurabenn/precon_all) package. It is fully automated and Freesurfer compatible, but results may vary. To use it:
+For later processing and/or visualisation, for instance with packages like [NHP-Pycortex](https://github.com/VisionandCognition/NHP-pycortex) it can be useful to generate [Freesurfer](https://surfer.nmr.mgh.harvard.edu/) compatible surfaces and segmentations. This is not trivial for non-human brains. With a package like [NHP-Freesurfer](https://github.com/VisionandCognition/NHP-Freesurfer) you can do this but it requires a fair bit of manual editing. A fast alternative we have implemented here is to use the [precon_all](https://github.com/neurabenn/precon_all) package. It is fully automated and Freesurfer compatible, but results may vary (takes many hours). To use it:
 
 `ssreg_precon_all.sh subject regtype [template folder path] [NMT version] [NMT type] [atlas_name]`  
 [atlas_name] : atlas (the folder name at precon_all/standards/<atlas_name>) to drive surface labeling (default: NIMH_mac).
