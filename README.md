@@ -78,7 +78,7 @@ The first processing step is `ssreg_prep.sh`. It takes one obligatory argument `
 
 Defaults for the positional arguments can be set in the script. For us, they are:
 
-`template folder` /NHP_MRI/Template    
+`template folder` ~/NHP_MRI/Template    
 `NMT version` NMT_v2.0    
 `NMT type` NMT_v2.0_sym    
 `NMT subtype` NMT_v2.0_sym 
@@ -86,7 +86,7 @@ Defaults for the positional arguments can be set in the script. For us, they are
 <details>
 <summary>Example code with our default positional arguments</summary>
 <pre>$ Positional arguments at the Netherlands Institute for Neuroscience (path is obviously different at other institutes); example subject = 'Aapie'
-bash ssreg_prep.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym <br>
+bash ssreg_prep.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym <br>
 $ Make sure you run this bash script from the reg_scripts folder or add the path when running it from someplace else 
 </pre>
 </details>
@@ -113,7 +113,7 @@ To run this script, use the following positional arguments:
 <summary>Example code for a T1w scan with our default positional arguments</summary>
 <pre>$ Example of running the ssreg_NMTv2.sh script for a T1w scan on the command line
 $ subject = 'Aapie', cost function = 'lpa', registration type = 'all'
-bash ssreg_NMTv2.sh Aapie lpa all /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym <br>
+bash ssreg_NMTv2.sh Aapie lpa all ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym <br>
 </pre>
 </details>
 
@@ -122,7 +122,7 @@ bash ssreg_NMTv2.sh Aapie lpa all /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2
 <pre>$ Example of running the ssreg_NMTv2.sh script for a T1w scan on the command line
 $ When using the T2 as the default (for example when there is no T1 or it has better quality), treat the scan like a different 'subject'
 $ subject = 'Aapie_T2' cost function = 'lpc', registration type = 'all'
-bash ssreg_NMTv2.sh Aapie_T2 lpc all /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym <br>
+bash ssreg_NMTv2.sh Aapie_T2 lpc all ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym <br>
 </pre>
 </details>
 
@@ -139,15 +139,15 @@ The workaround registration of T2w images with the fix is slightly more complex.
 <br>
 
 $ subject = 'Aapie', cost function = 'lpc', registration type = 'affine'
-bash ssreg_NMTv2.sh Aapie lpc affine /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_NMTv2.sh Aapie lpc affine ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
 <br>
 
 $ run the replacement script: treating T1 as T2
-bash ss_T2w_imitates_T1w.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym
+bash ss_T2w_imitates_T1w.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym
 <br>
 
 $ subject = 'Aapie', cost function = 'lpa', registration type = 'all'
-bash ssreg_NMTv2.sh Aapie lpa all /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_NMTv2.sh Aapie lpa all ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
 </pre>
 </details>
 
@@ -225,8 +225,8 @@ The script will check whether these are present and quit without making meshes w
 <summary>Example code running both scripts sequentially with our default positional arguments</summary>
 <pre>$ Example of running the scripts for the T1w scan used earlier on the command line
 $ subject = 'Aapie'
-bash ssreg_aff_ROIs.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
-bash ssreg_nlin_ROIs.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_aff_ROIs.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_nlin_ROIs.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
 </pre>
 </details>
 
@@ -248,8 +248,8 @@ For visual neuroscience, it is often useful to know what regions of space a voxe
 <summary>Example code running both scripts sequentially with our default positional arguments</summary>
 <pre>$ Example of running the scripts for the T1w scan used earlier on the command line
 $ subject = 'Aapie'
-bash ssreg_aff_Retinotopy.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
-bash ssreg_nlin_Retinotopy.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_aff_Retinotopy.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_nlin_Retinotopy.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
 </pre>
 </details>
 
@@ -270,8 +270,8 @@ We have warped a detailed mathematical retinotopic map of the LGN [(Erwin et al.
 <summary>Example code running both scripts sequentially with our default positional arguments</summary>
 <pre>$ Example of running the scripts for the T1w scan used earlier on the command line
 $ subject = 'Aapie'
-bash ssreg_aff_Retinotopy-LGN.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
-bash ssreg_nlin_Retinotopy-LGN.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_aff_Retinotopy-LGN.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_nlin_Retinotopy-LGN.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
 </pre>
 </details>
 
@@ -298,8 +298,8 @@ The scripts then work as follows (again using either the affine or affine+nlin):
 <summary>Example code running both scripts sequentially with our default positional arguments</summary>
 <pre>$ Example of running the scripts for the T1w scan used earlier on the command line
 $ subject = 'Aapie'
-bash ssreg_aff_ONPRC18.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
-bash ssreg_nlin_ONPRC18.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_aff_ONPRC18.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
+bash ssreg_nlin_ONPRC18.sh Aapie ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
 </pre>
 </details>
 
@@ -312,7 +312,8 @@ bash ssreg_nlin_ONPRC18.sh Aapie /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.
 ## Step 8: Create Freesurfer compatible surfaces
 For later processing and/or visualisation, for instance with packages like [NHP-Pycortex](https://github.com/VisionandCognition/NHP-pycortex) it can be useful to generate [Freesurfer](https://surfer.nmr.mgh.harvard.edu/) compatible surfaces and segmentations. This is not trivial for non-human brains. With a package like [NHP-Freesurfer](https://github.com/VisionandCognition/NHP-Freesurfer) you can do this but it requires a fair bit of manual editing. A fast alternative we have implemented here is to use the [precon_all](https://github.com/neurabenn/precon_all) package. It is fully automated and Freesurfer compatible, but results may vary. To use it:
 
-`ssreg_precon_all.sh subject regtype [template folder path] [NMT version] [NMT type]`
+`ssreg_precon_all.sh subject regtype [template folder path] [NMT version] [NMT type] [atlas_name]`  
+[atlas_name] : atlas (the folder name at precon_all/standards/<atlas_name>) to drive surface labeling (default: NIMH_mac).
 
 Here`regtype` defines whether we will only do affine registration (`affine`), affine+nonlinear (`nlin`), or both (`both`).
 
@@ -320,7 +321,7 @@ Here`regtype` defines whether we will only do affine registration (`affine`), af
 <summary>Example code running the precon_all script with our default positional arguments</summary>
 <pre>$ You will find the outputs in ../seg and ../surf subfolders, a data-structure that freesurfer uses  
 $ subject = 'Aapie'
-bash ssreg_precon_all.sh Aapie both /NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym
+bash ssreg_precon_all.sh Aapie both ~/NHP_MRI/Template NMT_v2.0 NMT_v2.0_sym NMT_v2.0_sym
 </pre>
 </details>
 
